@@ -1,5 +1,6 @@
 /* eslint-disable */
 const electron = require('electron');
+
 // Module to control application life.
 const app = electron.app;
 // Module to create native browser window.
@@ -12,12 +13,17 @@ const url = require('url');
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
+const express = require('express');
+const localServer = express();
+localServer.use(express.static('build'));
+localServer.listen('8082');
+
 function createWindow() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({ width: 800, height: 600 });
+  mainWindow = new BrowserWindow({ width: 1024, height: 768 });
 
   // and load the index.html of the app.
-  mainWindow.loadURL('http://localhost:3000');
+  mainWindow.loadURL('http://localhost:8082/');
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
