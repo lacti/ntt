@@ -1,0 +1,120 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-scripts": "1.1.4",
+    "socket.io-client": "^2.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.8.2",
+    "prettier": "^1.11.1"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": [
+      "airbnb",
+      "prettier",
+      "prettier/react"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "env": {
+      "browser": true
+    },
+    "rules": {
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "packageDir": "."
+        }
+      ],
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "warn",
+            "error",
+            "info"
+          ]
+        }
+      ],
+      "no-return-assign": "off",
+      "prefer-destructuring": [
+        "error",
+        {
+          "VariableDeclarator": {
+            "array": false,
+            "object": true
+          },
+          "AssignmentExpression": {
+            "array": false,
+            "object": false
+          }
+        },
+        {
+          "enforceForRenamedProperties": false
+        }
+      ],
+      "jsx-a11y/anchor-is-valid": [
+        "error",
+        {
+          "components": [
+            "Link"
+          ],
+          "specialLink": [
+            "to"
+          ],
+          "aspects": [
+            "noHref",
+            "invalidHref",
+            "preferButton"
+          ]
+        }
+      ],
+      "jsx-a11y/click-events-have-key-events": false,
+      "react/jsx-filename-extension": [
+        "error",
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ],
+      "react/prefer-stateless-function": "off",
+      "prettier/prettier": "error"
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "moduleDirectory": [
+            "node_modules",
+            "src"
+          ]
+        }
+      }
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "singleQuote": true,
+    "trailingComma": "all"
+  }
+}
