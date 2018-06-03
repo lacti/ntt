@@ -97,7 +97,17 @@ class App extends Component {
 
     for (let y = 0; y < Math.ceil(this.size.height / 32); y += 1) {
       for (let x = 0; x < Math.ceil(this.size.width / 32); x += 1) {
-        ctx.drawImage(this.img.tileset, 0, 0, 32, 32, x * 32, y * 32, 32, 32);
+        ctx.drawImage(
+          this.img.tileset,
+          32,
+          32 * 63,
+          32,
+          32,
+          x * 32,
+          y * 32,
+          32,
+          32,
+        );
       }
     }
     for (let index = 0; index < this.users.length; index += 1) {
@@ -105,14 +115,14 @@ class App extends Component {
       ctx.fillText(one.name, one.x * 32, one.y * 32);
       ctx.drawImage(
         this.img.hero,
-        0,
+        32,
         0,
         32,
-        48,
+        32,
         one.x * 32,
         one.y * 32,
         32,
-        48,
+        32,
       );
     }
     setTimeout(this.draw, 64);
