@@ -12,20 +12,16 @@
   "license": "ISC",
   "main": "src/electron-starter.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "REACT_APP_ENV=web react-scripts start",
+    "build": "REACT_APP_ENV=web react-scripts build",
+    "test": "REACT_APP_ENV=test react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "electron": "ELECTRON_DISABLE_SECURITY_WARNINGS=1 electron .",
-    "electron-pack": "pwd && asar pack build ntt-web.asar",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "build:electron": "REACT_APP_ENV=electron react-scripts build && asar pack build ../desktop/app.asar"
   },
   "devDependencies": {
     "asar": "^0.14.3",
     "babel-eslint": "^8.2.3",
     "electron": "^2.0.2",
-    "electron-package": "^0.1.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",

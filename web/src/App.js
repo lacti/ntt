@@ -4,14 +4,13 @@ import tileset from './assets/grass.png';
 import hero from './assets/hero.png';
 
 const serverUrl = () =>
-  `${window.location.protocol}//${window.location.hostname}:3001`;
+  process.env.REACT_APP_ENV === 'web'
+    ? 'http://127.0.0.1:3001'
+    : 'http://192.168.219.105:3001';
 
 class App extends Component {
   constructor() {
     super();
-    fetch(`${serverUrl()}/`)
-      .then(r => r.json())
-      .then(window.console.log);
     this.canvas = null;
     this.img = {
       tileset: window.document.createElement('img'),
