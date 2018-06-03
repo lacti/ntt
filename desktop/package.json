@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "electron src/",
-    "pack:all": "electron-packager src/ ntt --platform=all --arch x64 --out dist --overwrite",
+    "pack:all": "yarn pack:linux && yarn pack:windows",
     "pack:windows": "electron-packager src/ ntt --platform=win32 --arch x64 --out dist --overwrite",
     "pack:linux": "electron-packager src/ ntt --platform=linux --arch x64 --out dist --overwrite"
   },
