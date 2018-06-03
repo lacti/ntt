@@ -12,10 +12,9 @@ const app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-  return res.json('something special');
-});
+app.get('/', (req, res) => res.json('something special'));
 
 const server = http.Server(app);
 const io = socketio(server);

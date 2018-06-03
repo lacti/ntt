@@ -1,0 +1,17 @@
+**/node_modules/
+**/dist/
+**/.vscode/
+
+desktop/
+web/build/
+
+.git/
+.dockerignore
+.gitignore
+
+Dockerfile
+docker-compose.yml
+README.md
+
+*.swp
+

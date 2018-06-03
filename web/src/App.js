@@ -3,11 +3,18 @@ import socketio from 'socket.io-client';
 import tileset from './assets/grass.png';
 import hero from './assets/hero.png';
 
-const serverUrl = () =>
-  process.env.REACT_APP_ENV === 'web'
-    ? 'http://13.124.104.170:3001'
-    : 'http://13.124.104.170:3001';
-
+const serverUrl = () => {
+  switch (process.env.REACT_APP_STAGE) {
+    case 'prod':
+      return 'http://13.124.104.170:3001';
+    case 'docker':
+      return '';
+    default:
+      return process.env.REACT_APP_ENV === 'web'
+        ? `${window.location.protocol}//${window.location.hostname}:3001`
+        : 'http://127.0.0.1:3001';
+  }
+};
 class App extends Component {
   constructor() {
     super();
@@ -20,7 +27,6 @@ class App extends Component {
     this.img.hero.setAttribute('src', hero);
 
     this.users = [];
-
     this.io = socketio(serverUrl());
     this.io.on('users', json => {
       const users = JSON.parse(json);

@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --exec \"babel-node src/index.js\" ./src/index.js"
+    "start:dev": "nodemon --exec \"yarn start\" ./src/index.js",
+    "start": "babel-node src/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -38,15 +39,11 @@
   "eslintConfig": {
     "parser": "babel-eslint",
     "extends": [
-      "eslint:recommended",
+      "airbnb-base",
       "prettier"
     ],
     "plugins": [
-      "prettier",
-      "babel",
-      "import",
-      "node",
-      "promise"
+      "prettier"
     ],
     "env": {
       "es6": true,
