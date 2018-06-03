@@ -7,6 +7,8 @@ docker-build-push:
 	docker-compose push
 
 docker-desktop-package:
+# Use this for local test
+# -v "$(HOME)/.cache/electron:/root/.electron"
 	docker pull lacti/docker-node-env:wine-awscli && \
 	docker run -it \
 		-e "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" \
@@ -17,6 +19,7 @@ docker-desktop-package:
 		make desktop-package
 
 desktop-package:
+	export DISPLAY=":0.0" && \
 	cd web && \
 		yarn install && \
 		yarn build:electron && \
