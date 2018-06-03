@@ -1,0 +1,11 @@
+{
+  "name": "ntt-desktop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "asar": "^0.14.3"
+  }
+}

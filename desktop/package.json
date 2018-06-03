@@ -1,19 +1,15 @@
 {
-  "name": "ntt-desktop",
+  "name": "ntt-desktop-packager",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
   "scripts": {
-    "start": "ELECTRON_DISABLE_SECURITY_WARNINGS=1 electron .",
-    "pack:all": "electron-packager . ntt --platform=all --arch x64 --out dist --overwrite",
-    "pack:windows": "electron-packager . ntt --platform=win32 --arch x64 --out dist --overwrite",
-    "pack:linux": "electron-packager . ntt --platform=linux --arch x64 --out dist --overwrite"
+    "start": "electron src/",
+    "pack:all": "electron-packager src/ ntt --platform=all --arch x64 --out dist --overwrite",
+    "pack:windows": "electron-packager src/ ntt --platform=win32 --arch x64 --out dist --overwrite",
+    "pack:linux": "electron-packager src/ ntt --platform=linux --arch x64 --out dist --overwrite"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "asar": "^0.14.3"
-  },
   "devDependencies": {
     "electron": "^2.0.2",
     "electron-packager": "^12.1.0",

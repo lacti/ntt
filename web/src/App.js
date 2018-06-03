@@ -5,8 +5,8 @@ import hero from './assets/hero.png';
 
 const serverUrl = () =>
   process.env.REACT_APP_ENV === 'web'
-    ? 'http://127.0.0.1:3001'
-    : 'http://192.168.219.105:3001';
+    ? 'http://13.124.104.170:3001'
+    : 'http://13.124.104.170:3001';
 
 class App extends Component {
   constructor() {
@@ -41,7 +41,6 @@ class App extends Component {
           }
         }
       }
-      window.console.log(this.users);
     });
     this.io.emit('chat message', 'hello');
     this.io.on('chat message', msg => {

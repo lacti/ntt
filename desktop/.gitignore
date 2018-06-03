@@ -1,4 +1,5 @@
 dist/
 node_modules/
-*.asar
+src/node_modules/
+src/*.asar
 
