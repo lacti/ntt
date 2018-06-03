@@ -9,5 +9,5 @@ before_install:
   - sudo chmod +x /usr/local/bin/docker-compose
 script:
   - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
-  - make all
+  - make travis
 
