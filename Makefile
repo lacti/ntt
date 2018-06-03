@@ -7,13 +7,13 @@ docker-build-push:
 	docker-compose push
 
 docker-desktop-package:
-	docker pull lacti/node-wine-awscli && \
+	docker pull lacti/docker-node-env:wine-awscli && \
 	docker run -it \
 		-e "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" \
 		-e "AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}" \
 		-e "AWS_DEFAULT_REGION=ap-northeast-2" \
 		-v "$(shell pwd):/project" \
-		lacti/node-wine-awscli \
+		lacti/docker-node-env:wine-awscli \
 		make desktop-package
 
 desktop-package:
