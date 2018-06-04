@@ -29,7 +29,6 @@ desktop-package:
 		cd src && \
 			yarn install --production && \
 			cd - && \
-		yarn pack:all && \
-		./upload_dist.sh && \
+		yarn deploy:all && \
 		cd -
 

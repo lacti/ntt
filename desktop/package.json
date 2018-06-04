@@ -4,9 +4,16 @@
   "description": "",
   "scripts": {
     "start": "electron src/",
-    "pack:all": "yarn pack:linux && yarn pack:windows",
     "pack:windows": "electron-packager src/ ntt --platform=win32 --arch x64 --out dist --overwrite",
-    "pack:linux": "electron-packager src/ ntt --platform=linux --arch x64 --out dist --overwrite"
+    "pack:linux": "electron-packager src/ ntt --platform=linux --arch x64 --out dist --overwrite",
+    "pack:all": "yarn pack:linux && yarn pack:windows",
+    "zip:windows": "cd dist && rm -f ntt-win32-x64.zip && zip -r -q ntt-win32-x64.zip ntt-win32-x64",
+    "zip:linux": "cd dist && rm -f ntt-linux-x64.tar.xz && tar cJf ntt-linux-x64.tar.xz ntt-linux-x64",
+    "upload:windows": "aws s3 cp dist/ntt-win32-x64.zip s3://lacti.github.files/ntt/ --acl public-read",
+    "upload:linux": "aws s3 cp dist/ntt-linux-x64.tar.xz s3://lacti.github.files/ntt/ --acl public-read",
+    "deploy:windows": "yarn pack:windows && yarn zip:windows && yarn upload:windows",
+    "deploy:linux": "yarn pack:linux && yarn zip:linux && yarn upload:linux",
+    "deploy:all": "yarn deploy:windows && yarn deploy:linux"
   },
   "author": "",
   "license": "ISC",
